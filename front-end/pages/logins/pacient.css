@@ -1,10 +1,140 @@
+/* Estilo geral do fieldset */
 fieldset {
-    border: 1px solid #000;
-    border-radius: 7px;
-    width: 350px;
-    padding: 26px;
+    border: 3px solid #bdc1d4; /* Cor da borda */
+    border-radius: 8px; /* Bordas arredondadas */
+    width: 467px;
+    padding: 20px;
+    outline: none; /* Remover contorno padrão */
+    margin: 0 auto; /* Centralizar o formulário */
 }
 
+h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    text-align: center; /* Centralizar o texto */
+}
+
+/* Estilo do formulário */
 form {
     padding: 4px;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column; /* Organizar os elementos verticalmente */
+    gap: 10px; /* Espaço entre os elementos */
+    background-color: transparent; /* Torna o fundo do formulário transparente */
+    border-radius: 8px; /* Bordas arredondadas */
+}
+
+input {
+    border-radius: 8px;
+    border: 2px solid #b2b1d4;
+    padding: 10px;
+    font-size: 14px; 
+    transition: all 0.3s ease; 
+    width: 80%; /* Ocupa toda a largura do campo */
+}
+
+/* Estilo do input quando está em foco */
+input:focus {
+    border-color: #000000; /* Cor da borda ao focar */
+    outline: none; /* Remove o contorno */
+}
+
+/* Estilo para o botão de olho */
+.input-container {
+    position: relative; /* Tornar o input o contêiner relativo para posicionamento do ícone */
+}
+
+#senha {
+    padding-right: 20px; /* Espaço para o ícone dentro do input */
+}
+
+button {
+    background: none;
+    border: none;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 20px;
+}
+
+button i {
+    color: #0a52a0; /* Cor do ícone de olho */
+    transition: color 0.3s ease;
+}
+
+/* Estilo do botão ao passar o mouse */
+button:hover i {
+    color: #000;
+}
+
+a {
+    color: #3396ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    padding: 20px;
+    background-color: #063364;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-pacient {
+    width: 520px;
+    padding: 20px;
+    background-color: transparent; /* Remover fundo extra */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+label {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+p{
+    color: #ffffff;
+}
+
+.input-container {
+    position: relative;
+}
+
+#eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 20px;
+}
+
+button {
+    background: none;
+    border: none;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+button i {
+    font-size: 18px;
 }
