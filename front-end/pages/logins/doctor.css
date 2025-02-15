@@ -39,8 +39,9 @@ input {
     padding: 10px;
     font-size: 14px; 
     transition: all 0.3s ease; 
-    margin-left: 10px;
+    margin-left: 15px;
     width: 80%; /* Ocupa toda a largura do campo */
+    margin-bottom: 2px;
 }
 
 input:focus {
@@ -53,33 +54,14 @@ input:focus {
     position: relative;
     width: 90%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 #senha {
-    padding-right: 20px; /* Espaço para o ícone dentro do input */
+    padding-right: 40px; /* Espaço para o ícone dentro do input */
 }
 
-button {
-    background: none;
-    border: none;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    font-size: 20px;
-}
-
-button i {
-    color: #030f42; /* Cor do ícone de olho */
-    transition: color 0.3s ease;
-}
-
-/* Estilo do botão ao passar o mouse */
-button:hover i {
-    color: #000;
-}
 
 a {
     color: #3396ff;
@@ -116,9 +98,10 @@ header {
 }
 
 label {
-    margin-left: 13px;
     font-weight: bold;
     color: #ffffff;
+    margin-bottom: 5px;
+    margin-left: 12px;
 }
 
 p{
@@ -132,20 +115,6 @@ p{
     transform: translateY(-50%);
     cursor: pointer;
     font-size: 20px;
-}
-
-button {
-    background: none;
-    border: none;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-}
-
-button i {
-    font-size: 18px;
 }
 
 /* Container da imagem */
@@ -162,4 +131,45 @@ button i {
     height: 500px;
     object-fit: cover; /* Mantém a proporção e cobre todo o espaço */
     border-radius: 8px;
+}
+
+button {
+    background: none;
+    border: none;
+    position: absolute;
+    margin-top: 15px;
+    margin-right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 20px;
+        right: 10px;
+        top: 50%;
+    }
+
+.button-login button {
+    background-color: #ffffff;
+    border-radius: 3px;
+    padding: 10px 20px;
+    margin-top: 63px; /* Espaço entre o input e o botão */
+    margin-right: 62%;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.button-login button:hover {
+    background-color: #58a9ff; /* Cor ao passar o mouse */
+    color: #fff;
+}
+
+button i {
+    color: #142a8d; /* Cor do ícone de olho */
+    transition: color 0.3s ease;
+}
+
+/* Estilo do botão ao passar o mouse */
+button:hover i {
+    color: #000000;
 }
