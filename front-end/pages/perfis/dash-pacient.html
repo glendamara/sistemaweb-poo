@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Usuário</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dash-pacient.css">
+</head>
+<body>
+    <h1>Bem-vindo(a), <span id="user-name">Paciente</span>!</h1>
+    <br>
+    <div class="dados-user">
+    <form>    
+        <fieldset>
+            <h2>Dados de Usuário</h2>
+
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" value="" disabled>
+            
+            <label for="idade">Idade:</label>
+            <input type="number" id="idade" name="idade" value="" disabled>
+            
+            <label for="planoSaude">Plano de Saúde:</label>
+            <input type="text" id="planoSaude" name="planoSaude" value="" disabled>
+            
+            <button type="button" id="editarBtn">Editar</button>
+            <button type="submit" id="salvarBtn" style="display: none;">Salvar</button>
+        </fieldset>
+    </form>
+    </div>
+    
+    <div class="agend-user">
+    <form>
+        <fieldset>
+            <h3>Agendamento de Consultas</h3>
+                <p>Segue abaixo informações sobre os Médicos disponíveis para consulta, de acordo com seu Perfil.</p>
+                <p>Veja os dados conforme os filtros.</p>
+        </fieldset>
+    </form>
+    </div>
+
+    <script src="../js/dash-pacient.js"></script>
+</body>
+</html>
