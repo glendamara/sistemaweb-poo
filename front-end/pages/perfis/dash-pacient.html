@@ -9,38 +9,88 @@
     <link rel="stylesheet" href="dash-pacient.css">
 </head>
 <body>
+
     <h1>Bem-vindo(a), <span id="user-name">Paciente</span>!</h1>
-    <br>
-    <div class="dados-user">
-    <form>    
-        <fieldset>
-            <h2>Dados de Usuário</h2>
 
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" value="" disabled>
-            
-            <label for="idade">Idade:</label>
-            <input type="number" id="idade" name="idade" value="" disabled>
-            
-            <label for="planoSaude">Plano de Saúde:</label>
-            <input type="text" id="planoSaude" name="planoSaude" value="" disabled>
-            
-            <button type="button" id="editarBtn">Editar</button>
-            <button type="submit" id="salvarBtn" style="display: none;">Salvar</button>
-        </fieldset>
-    </form>
-    </div>
-    
-    <div class="agend-user">
-    <form>
-        <fieldset>
-            <h3>Agendamento de Consultas</h3>
-                <p>Segue abaixo informações sobre os Médicos disponíveis para consulta, de acordo com seu Perfil.</p>
-                <p>Veja os dados conforme os filtros.</p>
-        </fieldset>
-    </form>
-    </div>
+    <div class="container">
+        <!-- Sidebar do usuário -->
+        <div class="dados-user">
+            <form>    
+                <fieldset>
+                    <h2>Dados de Usuário</h2>
 
-    <script src="../js/dash-pacient.js"></script>
-</body>
-</html>
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" value="" disabled>
+                    
+                    <label for="idade">Idade:</label>
+                    <input type="number" id="idade" name="idade" value="" disabled>
+                    
+                    <label for="planoSaude">Plano de Saúde:</label>
+                    <input type="text" id="planoSaude" name="planoSaude" value="" disabled>
+                    
+                    <button type="button" id="editarBtn">Editar</button>
+                    <button type="submit" id="salvarBtn" style="display: none;">Salvar</button>
+                </fieldset>
+            </form>
+        </div>
+
+        <!-- Área de agendamentos -->
+        <div class="agend-user">
+            <form>
+                <fieldset>
+                    <h3>Agendamento de Consultas</h3>
+                    <p>Pesquise médicos por nome ou especialidade.</p>
+
+                    <!-- Filtros -->
+                    <label for="searchName">Nome do Médico:</label>
+                    <input type="text" id="searchName" placeholder="Digite o nome do médico">
+
+                    <label for="searchEspecialidade">Especialidade:</label>
+                    <select id="searchEspecialidade">
+                        <option value="">Selecione a especialidade</option>
+                        <option value="Cardiologia">Cardiologia</option>
+                        <option value="Ortopedia">Ortopedia</option>
+                        <option value="Pediatria">Pediatria</option>
+                        <option value="Dermatologia">Dermatologia</option>
+                    </select>
+
+                    <button type="button" id="filtrarMedicos">Filtrar</button>
+
+                    <!-- Lista de médicos -->
+                    <h4>Médicos Disponíveis:</h4>
+                    <div id="listaMedicos">
+                        <p>Sem médicos disponíveis no momento.</p>
+                    </div>
+
+                    <!-- Seleção de médico e data -->
+                    <label for="medicoSelecionado">Escolha um Médico:</label>
+                    <select id="medicoSelecionado">
+                        <option value="">Selecione um médico</option>
+                    </select>
+
+                    <label for="dataConsulta">Escolha uma Data:</label>
+                    <input type="date" id="dataConsulta">
+
+                    <button type="button" id="agendarConsulta">Agendar Consulta</button>
+
+                    <!-- Lista de espera -->
+                    <h4>Lista de Espera:</h4>
+                    <div id="listaEspera">
+                        <p>Nenhum paciente na lista de espera.</p>
+                    </div>
+
+                    <!-- Cancelamento de agendamento -->
+                    <h4>Cancelar Agendamento:</h4>
+                    <label for="cancelarConsulta">Escolha a consulta a cancelar:</label>
+                    <select id="cancelarConsulta">
+                        <option value="">Selecione uma consulta</option>
+                    </select>
+
+                    <button type="button" id="cancelarAgendamento">Cancelar Consulta</button>
+
+                    <!-- Realizar consulta -->
+                    <h3>Realizar Consulta</h3>
+                    <label for="sintomas">Sintomas:</label>
+                    <textarea id="sintomas" rows="3" placeholder="Descreva seus sintomas"></textarea>
+
+       
