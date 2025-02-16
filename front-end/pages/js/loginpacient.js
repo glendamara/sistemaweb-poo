@@ -45,21 +45,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const togglePasswordButton = document.getElementById("toggle-password");
     const icon = togglePasswordButton.querySelector("i");
 
-    // Definir o estado inicial correto: senha oculta, ícone de olho fechado
     icon.classList.remove("fa-eye");  
     icon.classList.add("fa-eye-slash");  
 
     togglePasswordButton.addEventListener("click", function () {
         if (senhaInput.type === "password") {
-            senhaInput.type = "text";  // Mostra a senha
+            senhaInput.type = "text";
             icon.classList.replace("fa-eye-slash", "fa-eye");  // Mostra olho aberto
         } else {
-            senhaInput.type = "password";  // Oculta a senha
+            senhaInput.type = "password"; 
             icon.classList.replace("fa-eye", "fa-eye-slash");  // Mostra olho cortado
         }
     });
 
-    // Efeito de animação no ícone
     togglePasswordButton.addEventListener("mouseover", function () {
         icon.style.transform = "scale(1.3)";
     });
