@@ -1,7 +1,6 @@
 document.getElementById("loginForm").addEventListener("submit", function (event) {
-    event.preventDefault(); // Impede o envio tradicional do formulário
+    event.preventDefault();
 
-    // Coleta os dados do formulário
     const nome = document.getElementById("nome").value;
     const senha = document.getElementById("senha").value;
 
@@ -41,34 +40,31 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
     });
 });
 
-// Adicionando funcionalidade para mostrar/esconder a senha ao clicar no ícone de olho
-document.getElementById("toggle-password").addEventListener("click", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const senhaInput = document.getElementById("senha");
-    const icon = document.querySelector("#toggle-password i");
+    const togglePasswordButton = document.getElementById("toggle-password");
+    const icon = togglePasswordButton.querySelector("i");
 
-    // Alterna entre tipo de input password/text
-    if (senhaInput.type === "password") {
-        senhaInput.type = "text";
-        icon.classList.remove("fa-eye"); // Remove o ícone de olho fechado
-        icon.classList.add("fa-eye-slash"); // Adiciona o ícone de olho aberto
-    } else {
-        senhaInput.type = "password";
-        icon.classList.remove("fa-eye-slash");
-        icon.classList.add("fa-eye");
-    }
-});
+    // Definir o estado inicial correto: senha oculta, ícone de olho fechado
+    icon.classList.remove("fa-eye");  
+    icon.classList.add("fa-eye-slash");  
 
-// Adicionando animação no ícone de olho
-const eyeIcon = document.querySelector("#toggle-password i");
+    togglePasswordButton.addEventListener("click", function () {
+        if (senhaInput.type === "password") {
+            senhaInput.type = "text";  // Mostra a senha
+            icon.classList.replace("fa-eye-slash", "fa-eye");  // Mostra olho aberto
+        } else {
+            senhaInput.type = "password";  // Oculta a senha
+            icon.classList.replace("fa-eye", "fa-eye-slash");  // Mostra olho cortado
+        }
+    });
 
-// Aplique a transição de forma correta no CSS
-eyeIcon.style.transition = "transform 0.3s ease"; // Certifique-se de que a transição está definida
+    // Efeito de animação no ícone
+    togglePasswordButton.addEventListener("mouseover", function () {
+        icon.style.transform = "scale(1.3)";
+    });
 
-// Eventos de mouseover e mouseout para a animação do zoom
-eyeIcon.addEventListener("mouseover", function() {
-    eyeIcon.style.transform = "scale(1.3)"; // Aumenta o tamanho do ícone quando o mouse passa por cima
-});
-
-eyeIcon.addEventListener("mouseout", function() {
-    eyeIcon.style.transform = "scale(1)"; // Restaura o tamanho original ao tirar o mouse
+    togglePasswordButton.addEventListener("mouseout", function () {
+        icon.style.transform = "scale(1)";
+    });
 });
