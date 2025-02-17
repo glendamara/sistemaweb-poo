@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(12, 0, 80);
+    background-color: rgb(28, 17, 92);
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
@@ -12,7 +12,7 @@ h1 {
     text-align: center;
     margin-top: 45px;
     width: 100%;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 /* Container flexível para dividir a tela */
@@ -25,11 +25,11 @@ h1 {
 /* Sidebar fixa à esquerda */
 .dados-user {
     width: 340px; 
-    height: 100vh; 
+    height: 110vh; 
     position: fixed; 
     left: 0; 
     top: 0;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(5, 12, 46);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,11 +38,9 @@ h1 {
 
 .dados-user fieldset {
     width: 80%;
-
     margin-bottom: 30%;
-    padding: 28px;
+    padding: 25px;
     border-radius: 12px;
-    background-color: rgb(14, 0, 65);
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
 }
 
@@ -53,7 +51,7 @@ h1 {
 /* Seção de agendamentos ocupa o restante da tela */
 .agend-user {
     flex: 1; /* Ocupa o resto da tela */
-    margin-left: 320px; /* Dá espaço para a sidebar */
+    margin-left: 300px; /* Dá espaço para a sidebar */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,6 +59,7 @@ h1 {
 }
 
 .agend-user fieldset {
+    height: 90%;
     background-color: rgb(255, 255, 255);
     width: 100%;
     padding: 27px;
@@ -114,4 +113,14 @@ button {
     padding: 8px;
     margin-top: 7px;
     border-radius: 5px;
+}
+
+textarea {
+    width: 500px;
+    height: 100px;
+    margin-left: 130px;
+}
+
+#id-sintomas {
+    margin-left: 50px;
 }
