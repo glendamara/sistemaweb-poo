@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(28, 17, 92);
+    background-color: rgb(0, 7, 70);
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
@@ -10,7 +10,8 @@ body {
 
 h1 {
     text-align: center;
-    margin-top: 45px;
+    margin-left: 18%;
+    margin-top: 55px;
     width: 100%;
     color: rgb(255, 255, 255);
 }
@@ -24,7 +25,7 @@ h1 {
 
 /* Sidebar fixa à esquerda */
 .dados-user {
-    width: 340px; 
+    width: 360px; 
     height: 110vh; 
     position: fixed; 
     left: 0; 
@@ -41,7 +42,7 @@ h1 {
     margin-bottom: 30%;
     padding: 25px;
     border-radius: 12px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+    border-color: transparent;
 }
 
 .dados-user fieldset label, h2 {
@@ -62,7 +63,7 @@ h1 {
     height: 90%;
     background-color: rgb(255, 255, 255);
     width: 100%;
-    padding: 27px;
+    padding: 37px;
     border-radius: 12px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
     outline: none;
