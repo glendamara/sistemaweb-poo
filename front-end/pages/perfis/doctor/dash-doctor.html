@@ -10,17 +10,39 @@
     <link rel="stylesheet" href="perfil-doctor.css">
 </head>
 <body>
-    <h1>Bem vindo ao seu Perfil, Médico(a)!</h1>
-<br>
-    <fieldset>
-        <form> <H2>Dados Profissionais</H2>
-        <p>Nome:</p>
-        <p>Especialidade:</p>
-        <p>Área de Plano de Saúde:</p>
 
-    </form>
-  
-    </fieldset>
+    <h1>Bem-vindo, <span id="user-name">Doutor(a)</span>!</h1>
+
+    <div class="container">
+        <!-- Sidebar do usuário -->
+        <div class="dados-user">
+            <form>    
+                <fieldset>
+                    <h2>Dados de Usuário</h2>
+
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" value="" enable>
+                    
+                    <label for="idade">Especialidade:</label>
+                    <input type="number" id="idade" name="idade" value="" enable>
+                    
+                    <label for="planoSaude">Plano de Atendimento:</label>
+                    <input type="text" id="planoSaude" name="planoSaude" value="" enable>
+                    
+                    <button type="button" id="editarBtn">Editar</button>
+                    <button type="submit" id="salvarBtn" style="display: none;">Salvar</button>
+                </fieldset>
+            </form>
+        </div>
+
+        <div class="container-2">
+            <form>
+                <fieldset>
+                    <h3>Solicitações de Consulta</h3>
+                    
+                </fieldset>
+            </form>
+        </div>
 
 
 </body>
