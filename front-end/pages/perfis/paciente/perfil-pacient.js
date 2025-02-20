@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         planoSaude: "Unimed"
     };
 
-    //DOM
+    // DOM
     const nomeInput = document.getElementById("nome");
     const idadeInput = document.getElementById("idade");
     const planoSaudeInput = document.getElementById("planoSaude");
@@ -16,11 +16,11 @@ document.addEventListener("DOMContentLoaded", async function () {
     const salvarBtn = document.getElementById("salvarBtn");
     const agendarBtn = document.getElementById("agendarConsulta");
     const cancelarBtn = document.getElementById("cancelarAgendamento");
+    const botaoProximaPagina = document.getElementById("proximapag");
 
     // Simula requisição da API
     async function getUserData() {
         try {
-            // Simulação de API - Substituir por um fetch real quando disponível
             return new Promise((resolve) => {
                 setTimeout(() => {
                     const savedUser = JSON.parse(localStorage.getItem("userData")) || mockUserData;
@@ -29,57 +29,45 @@ document.addEventListener("DOMContentLoaded", async function () {
             });
         } catch (error) {
             console.error("Erro ao buscar dados do usuário:", error);
-            return mockUserData; // retorna dados padrão (em caso de erro
+            return mockUserData; 
         }
     }
 
-    // preenche os inputs com os dados do usuário
+    // Preenche os inputs com os dados do usuário
     async function loadUserData() {
         const userData = await getUserData();
-
-        // exibe os dados nos inputs (pré-visualização)
         nomeInput.value = userData.nome;
         idadeInput.value = userData.idade;
         planoSaudeInput.value = userData.planoSaude;
-
-        // atualiza o nome no cabeçalho
         userName.textContent = userData.nome;
     }
 
-    // ativar os campos de edição
+    // Ativar edição dos campos
     function enableEditing() {
         nomeInput.disabled = false;
         idadeInput.disabled = false;
         planoSaudeInput.disabled = false;
-
         editarBtn.style.display = "none";
         salvarBtn.style.display = "inline-block";
     }
 
-    //salvar os dados editados
+    // Salvar dados editados
     function saveUserData() {
         const updatedUser = {
             nome: nomeInput.value,
             idade: idadeInput.value,
             planoSaude: planoSaudeInput.value
         };
-
-        // salva no localStorage
         localStorage.setItem("userData", JSON.stringify(updatedUser));
-
-        // atualizar o nome na saudação
         userName.textContent = updatedUser.nome;
-
-        // bloquear dnv os campos
         nomeInput.disabled = true;
         idadeInput.disabled = true;
         planoSaudeInput.disabled = true;
-
         editarBtn.style.display = "inline-block";
         salvarBtn.style.display = "none";
     }
 
-    // agendar consulta
+    // Agendar consulta
     function agendarConsulta() {
         const medicoSelecionado = document.getElementById("medicoSelecionado").value;
         const dataConsulta = document.getElementById("dataConsulta").value;
@@ -91,10 +79,9 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     }
 
-    // cancelar consulta
+    // Cancelar consulta
     function cancelarConsulta() {
         const consultaSelecionada = document.getElementById("cancelarConsulta").value;
-
         if (consultaSelecionada) {
             alert("Consulta cancelada!");
         } else {
@@ -102,10 +89,17 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     }
 
+    // Redirecionamento para a próxima página
+    botaoProximaPagina.addEventListener("click", function () {
+        window.location.href = "consulta-p.html";
+    });
+
+    // Eventos
     editarBtn.addEventListener("click", enableEditing);
     salvarBtn.addEventListener("click", saveUserData);
     agendarBtn.addEventListener("click", agendarConsulta);
     cancelarBtn.addEventListener("click", cancelarConsulta);
 
+    // Carrega os dados do usuário ao iniciar
     loadUserData();
 });

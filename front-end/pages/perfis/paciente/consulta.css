@@ -1,0 +1,168 @@
+/* Estilização geral */
+body {
+    background-color: rgb(0, 7, 70);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 40px;
+    width: 100%;
+    color: white;
+}
+
+/* Layout principal */
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+}
+
+/* Sidebar fixa à esquerda */
+.dados-user {
+    width: 320px; 
+    height: 100vh; 
+    position: fixed; 
+    left: 0; 
+    top: 0;
+    background-color: rgb(5, 12, 46);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.6);
+}
+
+.dados-user fieldset {
+    width: 80%;
+    padding: 20px;
+    border-radius: 12px;
+    border-color: transparent;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dados-user h3, 
+.dados-user label {
+    color: white;
+}
+
+/* Estilização das estrelas */
+.star-rating {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #ccc; /* Cinza por padrão */
+    margin: 10px 0;
+}
+
+.star-rating .fa-star.selected {
+    color: gold; /* Dourado quando selecionado */
+}
+
+/* Botão de avaliação */
+#salvarAvaliacao {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+#salvarAvaliacao:hover {
+    background-color: #45a049;
+}
+
+#mensagemAvaliacao {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #fff;
+    font-size: 14px;
+}
+
+/* Seção de agendamento */
+.agend-user {
+    flex: 1;
+    margin-left: 320px; /* Para compensar a sidebar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.agend-user fieldset {
+    width: 100%;
+    padding: 40px;
+    border-radius: 12px;
+    background-color: #f4f4f4;
+}
+
+.agend-user h3, 
+.agend-user p {
+    color: rgb(8, 0, 83);
+    text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .dados-user {
+        width: 100%;
+        position: relative;
+        height: auto;
+    }
+
+    .agend-user {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

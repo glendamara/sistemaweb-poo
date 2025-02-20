@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,31 +6,31 @@
     <title>Perfil Usuário</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../paciente/perfil-pacient.css">
+    <link rel="stylesheet" href="../paciente/consulta.css">
 </head>
 <body>
 
-    <h1>Bem-vindo(a), <span id="user-name">Paciente</span>!</h1>
+    <h1>Realize sua Consulta</h1>
 
     <div class="container">
         <!-- Sidebar do usuário -->
         <div class="dados-user">
             <form>    
                 <fieldset>
-                    <h2>Dados de Usuário</h2>
-
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" value="" disabled>
-
-                    <label for="idade">Idade:</label>
-                    <input type="number" id="idade" name="idade" value="" disabled>
-
-                    <label for="planoSaude">Plano de Saúde:</label>
-                    <input type="text" id="planoSaude" name="planoSaude" value="" disabled>
-
-                    <button type="button" id="editarBtn">Editar</button>
-                    <button type="submit" id="salvarBtn" style="display: none;">Salvar</button>
-                </fieldset>
+                    <h3>Avaliações de Atendimento</h3>
+                    
+                    <label>Avalie a sua Consulta:</label>
+                    <div class="star-rating">
+                        <i class="fa fa-star" data-value="1"></i>
+                        <i class="fa fa-star" data-value="2"></i>
+                        <i class="fa fa-star" data-value="3"></i>
+                        <i class="fa fa-star" data-value="4"></i>
+                        <i class="fa fa-star" data-value="5"></i>
+                    </div>
+                    <button type="button" id="salvarAvaliacao">Enviar</button>
+                
+                    <p id="mensagemAvaliacao"></p>
+                </fieldset>                
             </form>
         </div>
 
@@ -39,66 +38,33 @@
         <div class="agend-user">
             <form>
                 <fieldset>
-                    <h3>Agendamento de Consultas</h3>
-                    <p>Pesquise médicos por nome ou especialidade.</p>
-
-                    <!-- Filtros -->
-                    <label for="searchName">Nome do Médico:</label>
-                    <input type="text" id="searchName" placeholder="Digite o nome do médico">
-
-                    <label for="searchEspecialidade">Especialidade:</label>
-                    <select id="searchEspecialidade">
-                        <option value="">Selecione a especialidade</option>
-                        <option value="Cardiologia">Cardiologia</option>
-                        <option value="Ortopedia">Ortopedia</option>
-                        <option value="Pediatria">Pediatria</option>
-                        <option value="Dermatologia">Dermatologia</option>
-                    </select>
-
-                    <!-- Lista de médicos -->
-                    <h4>Médicos Disponíveis:</h4>
-                    <div id="listaMedicos">
-                        <p>Sem médicos disponíveis no momento.</p>
-                    </div>
-
-                    <!-- Seleção de médico e data -->
-                    <label for="medicoSelecionado">Escolha um Médico:</label>
-                    <select id="medicoSelecionado">
-                        <option value="">Selecione um médico</option>
-                    </select>
-                    <div class="data-agendamento">
-                        <label for="dataConsulta">Escolha uma Data:</label>
-                        <input type="date" id="dataConsulta">
-                        <button type="button" id="agendarConsulta">Agendar</button>
-                    </div>                    
-
-
-                    <!-- Lista de espera 
-                    <h4>Lista de Espera:</h4>
-                    <div id="listaEspera">
-                        <p>Nenhum paciente na lista de espera.</p>
-                    </div> -->
-
-                    <!-- Cancelamento de agendamento -->
-                    <h4>Cancelar Agendamento:</h4>
-                    <label for="cancelarConsulta">Escolha a consulta a cancelar:</label>
-                    <select id="cancelarConsulta">
-                        <option value="">Selecione uma consulta</option>
-                    </select>
-                    <br>
-                    <button type="button" id="cancelarAgendamento">Cancelar</button>
+                    <h3>Link de Atendimento Online</h3>
+                    <p>Clique no botão abaixo para gerar o link da chamada.</p>
+                    <button type="button" id="gerarLink">Gerar Link</button>
+                    <p id="linkChamada" style="display:none;">Link da Chamada: <span id="urlChamada"></span></p>
+                    <button type="button" id="finalizarChamada" style="display:none;">Chamada Finalizada</button>
                 </fieldset>
             </form>
         </div>
     </div>
 
-        <script src="../paciente/perfil-pacient.js"></script>
+    <!-- Modal de Avaliação -->
+    <div id="modalAvaliacao" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Avalie a Consulta</h3>
+            <div class="star-rating-modal">
+                <i class="fa fa-star" data-value="1"></i>
+                <i class="fa fa-star" data-value="2"></i>
+                <i class="fa fa-star" data-value="3"></i>
+                <i class="fa fa-star" data-value="4"></i>
+                <i class="fa fa-star" data-value="5"></i>
+            </div>
+            <button type="button" id="salvarAvaliacaoModal">Enviar Avaliação</button>
+            <p id="mensagemAvaliacaoModal"></p>
+        </div>
+    </div>
+
+    <script src="../paciente/consulta.js"></script>
 </body>
 </html>
-
-                    <!-- Realizar consulta -->
-                    <!--<h3>Realizar Consulta</h3>
-                    <div id="id-sintomas">
-                    <label for="sintomas">Sintomas:</label>
-                    </div>
-                    <textarea id="sintomas" rows="3" placeholder="Descreva seus sintomas"></textarea>-->
