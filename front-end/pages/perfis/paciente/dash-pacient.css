@@ -36,7 +36,7 @@ h1 {
 /* Container flexível para dividir a tela */
 .container {
     display: flex;
-    width: 100%;
+    width: 150%;
     height: 100%;
     background-color: white;
 }
@@ -80,7 +80,7 @@ h1 {
 .agend-user fieldset {
     height: 90%;
     width: 100%;
-    padding: 37px;
+    padding: 50px 37px 37px;
     border-radius: 12px;
 }
 
@@ -90,15 +90,37 @@ h1 {
     margin-bottom: 10px;
 }
 
-input {
-    width: 90%;
+.agend-user input, .agend-user select {
+    width: 27%;  /* Reduzindo o tamanho geral */
     padding: 8px;
     margin-top: 7px;
+    margin-bottom: 17px;
     border-radius: 5px;
 }
 
+.data-agendamento {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre elementos */
+}
+
+#dataConsulta {
+    width: 20%;  /* Diminuindo tamanho do input de data */
+}
+
+#agendarConsulta {
+    width: 10%;  /* Botão do mesmo tamanho do input */
+    font-size: 12px;
+    padding: 5px;
+    cursor: pointer;
+    margin-bottom: 26px;
+}
+
 button {
+    width: 10%;
+    font-size: 11px;
     margin-top: 16px;
+    margin-left: 9px;
     padding: 3px;
     cursor: pointer;
 }

@@ -36,7 +36,7 @@ h1 {
 /* Container flexível para dividir a tela */
 .container {
     display: flex;
-    width: 100%;
+    width: 150%;
     height: 80vh;
     background-color: white;
 }
@@ -61,10 +61,11 @@ h1 {
     padding: 25px;
     border-radius: 12px;
     border-color: transparent;
+    color: white;
 }
 
-.dados-user fieldset label, h2 {
-    color: white;
+.container-2 fieldset {
+    border: #000;
 }
 
 input {
