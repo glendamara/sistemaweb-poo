@@ -67,7 +67,6 @@ h1 {
     color: white;
 }
 
-/* Seção de agendamentos ocupa o restante da tela */
 .agend-user {
     flex: 1; /* Ocupa o resto da tela */
     margin-left: 300px; /* Dá espaço para a sidebar */
@@ -117,7 +116,7 @@ h1 {
 }
 
 button {
-    width: 10%;
+    width: 20%;
     font-size: 11px;
     margin-top: 16px;
     margin-left: 9px;
