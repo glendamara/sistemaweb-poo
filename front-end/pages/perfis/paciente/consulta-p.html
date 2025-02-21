@@ -6,13 +6,12 @@
     <title>Perfil Usuário</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../paciente/consulta.css">
+    <link rel="stylesheet" href="consulta.css">
 </head>
 <body>
     <h1>Realize sua Consulta</h1>
 
     <div class="container">
-        <!-- Sidebar do usuário -->
         <div class="dados-user">
             <h3>Avaliações de Atendimento</h3>
             <ul id="listaAvaliacoes">
@@ -22,53 +21,55 @@
             </ul>
         </div>
 
-        <!-- Área de agendamentos -->
         <div class="agend-user">
             <form>
                 <fieldset>
                     <h3>Link de Atendimento Online</h3>
                     <p>Clique no botão abaixo para gerar o link da chamada.</p>
-                    <button type="button" id="gerarLink">Gerar Link</button>
-                    <p id="linkChamada" style="display:none;">
-                        Link da Chamada: 
-                        <a id="urlChamada" href="#" target="_blank"></a>
+                    <button type="button" id="gerarLink" class="linkbut">Gerar Link</button>
+                    <p id="linkChamada" class="hidden">
+                        Link da Chamada: <a id="urlChamada" href="#" target="_blank"></a>
                     </p>
-                    <button type="button" id="finalizarChamada" style="display:none;">Chamada Finalizada</button>
+                    <button type="button" id="finalizarChamada" class="hidden">Finalizar</button>
 
-                    <!-- Seção de Pagamento -->
                     <div id="pagamentoSection" class="hidden">
                         <h3>Informações de Pagamento</h3>
                         <label>Plano de Saúde:</label>
-                        <input type="text" id="planoSaude" disabled>
+                        <select id="planoSaude" disabled></select>
                         <p id="pagamentoInfo"></p>
-
                         <div class="pix-section">
-                            <h4>Pagamento via PIX</h4>
-                            <div class="pix-container">
-                                <p id="codigoPix">00020126330014BR.GOV.BCB.PIX5204000053039865802BR5920JOAO DA SILVA DE MEDEIROS6009SAO PAULO61080540900062070503***6304F7A7</p>
-                                <button type="button" id="copiarPix">Copiar Código</button>
-                            </div>
+                            <p id="codigoPix">00020126330014BR.GOV.BCB.PIX5204000053039865802BR...</p>
+                            <button type="button" id="copiarPix">Copiar Código PIX</button>
+                            <button type="button" id="enviarPagamento" class="hidden">Enviar Pagamento</button>
                         </div>
                     </div>
 
-                    <!-- Seção de Avaliação -->
                     <div id="avaliacaoSection" class="hidden">
                         <h3>Avalie a sua Consulta</h3>
                         <div class="star-rating">
-                            <i class="fa fa-star" data-value="1"></i>
-                            <i class="fa fa-star" data-value="2"></i>
-                            <i class="fa fa-star" data-value="3"></i>
-                            <i class="fa fa-star" data-value="4"></i>
-                            <i class="fa fa-star" data-value="5"></i>
+                            <span class="fa-star" data-rating="1">&#9733;</span>
+                            <span class="fa-star" data-rating="2">&#9733;</span>
+                            <span class="fa-star" data-rating="3">&#9733;</span>
+                            <span class="fa-star" data-rating="4">&#9733;</span>
+                            <span class="fa-star" data-rating="5">&#9733;</span>
                         </div>
-                        <button type="button" id="salvarAvaliacao">Enviar Avaliação</button>
-                        <p id="mensagemAvaliacao"></p>
+                        <p id="rating-feedback" class="hidden">Você avaliou com <span id="selected-rating">0</span> estrelas.</p>
+                        <textarea id="user-comment" class="hidden" placeholder="Deixe seu feedback..."></textarea>
+                        <button id="submit-feedback" class="hidden">Enviar feedback</button>
+                        <p id="thank-you-message" class="hidden">Obrigado pelo seu feedback!</p>
                     </div>
+                    <p id="rating-feedback" class="hidden">Você avaliou com <span id="selected-rating">0</span> estrelas.</p>
+                <textarea id="user-comment" class="hidden" placeholder="Deixe seu feedback..."></textarea>
+                <button id="submit-feedback" class="hidden">Enviar feedback</button>
+                <p id="thank-you-message" class="hidden">Obrigado pelo seu feedback!</p>
+            </fieldset>
+        </div>
+    </div>
                 </fieldset>
             </form>
         </div>
     </div>
 
-    <script src="../paciente/consulta.js"></script>
+    <script src="consulta.js"></script>
 </body>
 </html>

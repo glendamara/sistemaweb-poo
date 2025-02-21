@@ -9,7 +9,6 @@ body {
     color: white;
 }
 
-/* Sidebar */
 .dados-user {
     width: 320px;
     height: 100vh;
@@ -21,28 +20,39 @@ body {
     box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.6);
 }
 
-.dados-user h3 {
-    text-align: center;
+.container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background-color: white;
+    margin-left: 320px; /* Espaço para a sidebar */
 }
 
-/* Agendamento */
 .agend-user {
     flex: 1;
-    margin-left: 340px;
-    padding: 10px;
-    height: 600px;
-    overflow: auto; /* se o conteúdo for maior, adiciona rolagem */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .agend-user fieldset {
     width: 100%;
-    padding: 50px;
+    max-width: 800px;
+    padding: 20px;
     border-radius: 12px;
-    background-color: #f4f4f4;
-    color: rgb(8, 0, 83);
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    margin-bottom: 20px;
 }
 
-/* Avaliação */
+.agend-user h3, .agend-user p {
+    color: rgb(8, 0, 83);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 .star-rating {
     display: flex;
     justify-content: center;
@@ -56,30 +66,27 @@ body {
     color: gold;
 }
 
-/* Seção de Pagamento via pix */
-.qr-section {
+.hidden {
+    display: none;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: vertical;
     margin-top: 10px;
 }
 
-.qr-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.qr-container img {
-    width: 120px;
-    height: 120px;
-}
-
 button {
-    justify-content: center;
     padding: 10px 15px;
     background-color: #0056b3;
     color: white;
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    margin-top: 10px;
 }
 
 button:hover {

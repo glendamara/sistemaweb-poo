@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", async function () {
     // Simulação de dados de usuário
     const mockUserData = {
@@ -105,4 +104,3 @@ document.addEventListener("DOMContentLoaded", async function () {
     // Carrega os dados do usuário ao iniciar
     loadUserData();
 });
-
