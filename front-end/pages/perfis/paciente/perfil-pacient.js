@@ -1,5 +1,6 @@
+
 document.addEventListener("DOMContentLoaded", async function () {
-    // Simulação de dados de usuário (antes da API)
+    // Simulação de dados de usuário
     const mockUserData = {
         nome: "Ana Souza",
         idade: 28,
@@ -9,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     // DOM
     const nomeInput = document.getElementById("nome");
     const idadeInput = document.getElementById("idade");
-    const planoSaudeInput = document.getElementById("planoSaude");
+    const planoSaudeSelect = document.getElementById("planoSaude");
     const userName = document.getElementById("user-name");
 
     const editarBtn = document.getElementById("editarBtn");
@@ -38,7 +39,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         const userData = await getUserData();
         nomeInput.value = userData.nome;
         idadeInput.value = userData.idade;
-        planoSaudeInput.value = userData.planoSaude;
+        planoSaudeSelect.value = userData.planoSaude || "nenhum";
         userName.textContent = userData.nome;
     }
 
@@ -46,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     function enableEditing() {
         nomeInput.disabled = false;
         idadeInput.disabled = false;
-        planoSaudeInput.disabled = false;
+        planoSaudeSelect.disabled = false;
         editarBtn.style.display = "none";
         salvarBtn.style.display = "inline-block";
     }
@@ -56,13 +57,13 @@ document.addEventListener("DOMContentLoaded", async function () {
         const updatedUser = {
             nome: nomeInput.value,
             idade: idadeInput.value,
-            planoSaude: planoSaudeInput.value
+            planoSaude: planoSaudeSelect.value
         };
         localStorage.setItem("userData", JSON.stringify(updatedUser));
         userName.textContent = updatedUser.nome;
         nomeInput.disabled = true;
         idadeInput.disabled = true;
-        planoSaudeInput.disabled = true;
+        planoSaudeSelect.disabled = true;
         editarBtn.style.display = "inline-block";
         salvarBtn.style.display = "none";
     }
@@ -89,8 +90,9 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     }
 
-    // Redirecionamento para a próxima página
+    // Redirecionamento para a próxima página, salvando plano de saúde no sessionStorage
     botaoProximaPagina.addEventListener("click", function () {
+        sessionStorage.setItem("planoSaude", planoSaudeSelect.value);
         window.location.href = "consulta-p.html";
     });
 
@@ -103,3 +105,4 @@ document.addEventListener("DOMContentLoaded", async function () {
     // Carrega os dados do usuário ao iniciar
     loadUserData();
 });
+

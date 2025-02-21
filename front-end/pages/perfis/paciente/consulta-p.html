@@ -41,13 +41,14 @@
                         <label>Plano de Saúde:</label>
                         <input type="text" id="planoSaude" disabled>
                         <p id="pagamentoInfo"></p>
-                    </div>
 
-                    <!-- Seção de Informações da Consulta -->
-                    <div id="informacoesConsultaSection" class="hidden">
-                        <h3>Resumo da Consulta</h3>
-                        <label>Relatório Médico:</label>
-                        <textarea id="descricaoConsulta" rows="5" readonly></textarea>
+                        <div class="pix-section">
+                            <h4>Pagamento via PIX</h4>
+                            <div class="pix-container">
+                                <p id="codigoPix">00020126330014BR.GOV.BCB.PIX5204000053039865802BR5920JOAO DA SILVA DE MEDEIROS6009SAO PAULO61080540900062070503***6304F7A7</p>
+                                <button type="button" id="copiarPix">Copiar Código</button>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Seção de Avaliação -->

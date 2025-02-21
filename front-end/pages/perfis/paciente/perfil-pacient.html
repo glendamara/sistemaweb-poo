@@ -26,7 +26,12 @@
                     <input type="number" id="idade" name="idade" value="" disabled>
 
                     <label for="planoSaude">Plano de Saúde:</label>
-                    <input type="text" id="planoSaude" name="planoSaude" value="" disabled>
+                    <select id="planoSaude" name="planoSaude" disabled>
+                        <option value="nenhum">Nenhum</option>
+                        <option value="Unimed">Unimed</option>
+                        <option value="Amil">Amil</option>
+                        <option value="Bradesco Saúde">Bradesco Saúde</option>
+                    </select>
 
                     <button type="button" id="editarBtn">Editar</button>
                     <button type="submit" id="salvarBtn" style="display: none;">Salvar</button>
@@ -71,13 +76,6 @@
                         <button type="button" id="agendarConsulta">Agendar</button>
                     </div>                    
 
-
-                    <!-- Lista de espera 
-                    <h4>Lista de Espera:</h4>
-                    <div id="listaEspera">
-                        <p>Nenhum paciente na lista de espera.</p>
-                    </div> -->
-
                     <!-- Cancelamento de agendamento -->
                     <h4>Cancelar Agendamento:</h4>
                     <label for="cancelarConsulta">Escolha a consulta a cancelar:</label>
@@ -92,6 +90,6 @@
         </div>
     </div>
 
-        <script src="../paciente/perfil-pacient.js"></script>
+    <script src="../paciente/perfil-pacient.js"></script>
 </body>
 </html>

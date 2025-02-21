@@ -25,11 +25,13 @@ body {
     text-align: center;
 }
 
-/*agendamento */
+/* Agendamento */
 .agend-user {
     flex: 1;
     margin-left: 340px;
     padding: 10px;
+    height: 600px;
+    overflow: auto; /* se o conteúdo for maior, adiciona rolagem */
 }
 
 .agend-user fieldset {
@@ -40,7 +42,7 @@ body {
     color: rgb(8, 0, 83);
 }
 
-/* avaliação */
+/* Avaliação */
 .star-rating {
     display: flex;
     justify-content: center;
@@ -54,19 +56,32 @@ body {
     color: gold;
 }
 
-/*seção de infos */
-.hidden {
-    display: none;
+/* Seção de Pagamento via pix */
+.qr-section {
+    margin-top: 10px;
 }
 
-#descricaoConsulta {
-    width: 100%;
-    resize: none;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #e9ecef;
+.qr-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.qr-container img {
+    width: 120px;
+    height: 120px;
 }
 
 button {
     justify-content: center;
+    padding: 10px 15px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #004494;
 }

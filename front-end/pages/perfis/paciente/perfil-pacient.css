@@ -137,7 +137,7 @@ button {
     margin-bottom: 10px;
 }
 
-.dados-user input {
+.dados-user input, .dados-user select {
     width: 90%;
     padding: 8px;
     margin-top: 7px;

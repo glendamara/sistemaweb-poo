@@ -1,4 +1,3 @@
-// Elementos da página
 const gerarLinkButton = document.getElementById("gerarLink");
 const linkChamada = document.getElementById("linkChamada");
 const urlChamada = document.getElementById("urlChamada");
@@ -10,23 +9,17 @@ const avaliacaoSection = document.getElementById("avaliacaoSection");
 const salvarAvaliacaoButton = document.getElementById("salvarAvaliacao");
 const mensagemAvaliacao = document.getElementById("mensagemAvaliacao");
 const estrelas = document.querySelectorAll(".star-rating .fa-star");
+const copiarQrButton = document.getElementById("copiarQr");
 
-let avaliacaoSelecionada = 0; // Armazena a nota da avaliação
+let avaliacaoSelecionada = 0; 
 
-// Simulação dos dados do paciente
-const paciente = {
-    nome: "João Silva",
-    idade: 30,
-    planoSaude: "Unimed",
-    medico: "Dr. Ricardo",
-    especialidade: "Cardiologia"
-};
+const planoSaudeSalvo = sessionStorage.getItem("planoSaude");
 
-// Preencher plano de saúde
-planoSaudeInput.value = paciente.planoSaude;
-planoSaudeInput.disabled = true;
+if (planoSaudeSalvo) {
+    planoSaudeInput.value = planoSaudeSalvo;
+    planoSaudeInput.disabled = true;
+}
 
-// Gerar link para chamada
 gerarLinkButton.addEventListener("click", () => {
     const link = `https://meet.google.com/${Math.random().toString(36).substr(2, 10)}`;
     
@@ -36,7 +29,7 @@ gerarLinkButton.addEventListener("click", () => {
     finalizarChamadaButton.style.display = "block";
 });
 
-// Finalizar chamada e exibir pagamento e avaliação
+// acaba chamada e exibe pagamento e avaliação
 finalizarChamadaButton.addEventListener("click", () => { 
     alert("Chamada finalizada.");
     linkChamada.style.display = "none";
@@ -45,34 +38,16 @@ finalizarChamadaButton.addEventListener("click", () => {
     pagamentoSection.classList.remove("hidden");
     avaliacaoSection.classList.remove("hidden");
 
-    if (paciente.planoSaude) {
+    if (planoSaudeSalvo && planoSaudeSalvo !== "nenhum") {
         pagamentoInfo.innerHTML = "<strong>Consulta coberta pelo plano.</strong>";
     } else {
-        pagamentoInfo.innerHTML = `<strong>Valor da consulta: R$ 200,00</strong>`;
+        pagamentoInfo.innerHTML = `<strong>Valor da consulta: R$ 150,00</strong>`;
     }
 });
 
-// Adicionar funcionalidade de avaliação com estrelas
-estrelas.forEach((estrela, index) => {
-    estrela.addEventListener("click", () => {
-        avaliacaoSelecionada = index + 1; // Define a avaliação escolhida (1 a 5)
-
-        // Resetando todas as estrelas
-        estrelas.forEach((el, i) => {
-            if (i < avaliacaoSelecionada) {
-                el.classList.add("selected"); // Preenche estrelas até a escolhida
-            } else {
-                el.classList.remove("selected");
-            }
-        });
+//copiar código do pix
+copiarQrButton.addEventListener("click", () => {
+    navigator.clipboard.writeText("codigo-do-qr-code-aqui").then(() => {
+        alert("Código QR copiado!");
     });
-});
-
-// Salvar avaliação
-salvarAvaliacaoButton.addEventListener("click", () => {
-    if (avaliacaoSelecionada > 0) {
-        mensagemAvaliacao.textContent = `Avaliação enviada com sucesso! Nota: ${avaliacaoSelecionada} estrelas.`;
-    } else {
-        mensagemAvaliacao.textContent = "Por favor, selecione uma nota antes de enviar.";
-    }
 });
