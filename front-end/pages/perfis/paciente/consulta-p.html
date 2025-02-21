@@ -9,29 +9,17 @@
     <link rel="stylesheet" href="../paciente/consulta.css">
 </head>
 <body>
-
     <h1>Realize sua Consulta</h1>
 
     <div class="container">
         <!-- Sidebar do usuário -->
         <div class="dados-user">
-            <form>    
-                <fieldset>
-                    <h3>Avaliações de Atendimento</h3>
-                    
-                    <label>Avalie a sua Consulta:</label>
-                    <div class="star-rating">
-                        <i class="fa fa-star" data-value="1"></i>
-                        <i class="fa fa-star" data-value="2"></i>
-                        <i class="fa fa-star" data-value="3"></i>
-                        <i class="fa fa-star" data-value="4"></i>
-                        <i class="fa fa-star" data-value="5"></i>
-                    </div>
-                    <button type="button" id="salvarAvaliacao">Enviar</button>
-                
-                    <p id="mensagemAvaliacao"></p>
-                </fieldset>                
-            </form>
+            <h3>Avaliações de Atendimento</h3>
+            <ul id="listaAvaliacoes">
+                <li>Ótimo atendimento - 5 estrelas</li>
+                <li>Muito atencioso - 4 estrelas</li>
+                <li>Rápido e eficiente - 5 estrelas</li>
+            </ul>
         </div>
 
         <!-- Área de agendamentos -->
@@ -41,27 +29,42 @@
                     <h3>Link de Atendimento Online</h3>
                     <p>Clique no botão abaixo para gerar o link da chamada.</p>
                     <button type="button" id="gerarLink">Gerar Link</button>
-                    <p id="linkChamada" style="display:none;">Link da Chamada: <span id="urlChamada"></span></p>
+                    <p id="linkChamada" style="display:none;">
+                        Link da Chamada: 
+                        <a id="urlChamada" href="#" target="_blank"></a>
+                    </p>
                     <button type="button" id="finalizarChamada" style="display:none;">Chamada Finalizada</button>
+
+                    <!-- Seção de Pagamento -->
+                    <div id="pagamentoSection" class="hidden">
+                        <h3>Informações de Pagamento</h3>
+                        <label>Plano de Saúde:</label>
+                        <input type="text" id="planoSaude" disabled>
+                        <p id="pagamentoInfo"></p>
+                    </div>
+
+                    <!-- Seção de Informações da Consulta -->
+                    <div id="informacoesConsultaSection" class="hidden">
+                        <h3>Resumo da Consulta</h3>
+                        <label>Relatório Médico:</label>
+                        <textarea id="descricaoConsulta" rows="5" readonly></textarea>
+                    </div>
+
+                    <!-- Seção de Avaliação -->
+                    <div id="avaliacaoSection" class="hidden">
+                        <h3>Avalie a sua Consulta</h3>
+                        <div class="star-rating">
+                            <i class="fa fa-star" data-value="1"></i>
+                            <i class="fa fa-star" data-value="2"></i>
+                            <i class="fa fa-star" data-value="3"></i>
+                            <i class="fa fa-star" data-value="4"></i>
+                            <i class="fa fa-star" data-value="5"></i>
+                        </div>
+                        <button type="button" id="salvarAvaliacao">Enviar Avaliação</button>
+                        <p id="mensagemAvaliacao"></p>
+                    </div>
                 </fieldset>
             </form>
-        </div>
-    </div>
-
-    <!-- Modal de Avaliação -->
-    <div id="modalAvaliacao" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>Avalie a Consulta</h3>
-            <div class="star-rating-modal">
-                <i class="fa fa-star" data-value="1"></i>
-                <i class="fa fa-star" data-value="2"></i>
-                <i class="fa fa-star" data-value="3"></i>
-                <i class="fa fa-star" data-value="4"></i>
-                <i class="fa fa-star" data-value="5"></i>
-            </div>
-            <button type="button" id="salvarAvaliacaoModal">Enviar Avaliação</button>
-            <p id="mensagemAvaliacaoModal"></p>
         </div>
     </div>
 
