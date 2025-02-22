@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Usuário</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="consulta.css">
+</head>
+<body>
+    <h1>Realize sua Consulta</h1>
+
+    <div class="container">
+        <div class="dados-user">
+            <h3>Avaliações de Atendimento</h3>
+            <ul id="listaAvaliacoes">
+                <li>Ótimo atendimento - 5 estrelas</li>
+                <li>Muito atencioso - 4 estrelas</li>
+                <li>Rápido e eficiente - 5 estrelas</li>
+            </ul>
+        </div>
+
+        <div class="agend-user">
+            <form>
+                <fieldset>
+                    <h3>Link de Atendimento Online</h3>
+                    <p>Clique no botão abaixo para gerar o link da chamada.</p>
+                    <button type="button" id="gerarLink" class="linkbut">Gerar Link</button>
+                    <p id="linkChamada" class="hidden">
+                        Link da Chamada: <a id="urlChamada" href="#" target="_blank"></a>
+                    </p>
+                    <button type="button" id="finalizarChamada" class="hidden">Finalizar</button>
+
+                    <div id="pagamentoSection" class="hidden">
+                        <h3>Informações de Pagamento</h3>
+                        <label>Plano de Saúde:</label>
+                        <select id="planoSaude" disabled></select>
+                        <p id="pagamentoInfo"></p>
+                        <div class="pix-section">
+                            <p id="codigoPix">00020126330014BR.GOV.BCB.PIX5204000053039865802BR...</p>
+                            <button type="button" id="copiarPix">Copiar Código PIX</button>
+                            <button type="button" id="enviarPagamento" class="hidden">Enviar Pagamento</button>
+                        </div>
+                    </div>
+
+                    <div id="avaliacaoSection" class="hidden">
+                        <h3>Avalie a sua Consulta</h3>
+                        <div class="star-rating">
+                            <span class="fa-star" data-rating="1">&#9733;</span>
+                            <span class="fa-star" data-rating="2">&#9733;</span>
+                            <span class="fa-star" data-rating="3">&#9733;</span>
+                            <span class="fa-star" data-rating="4">&#9733;</span>
+                            <span class="fa-star" data-rating="5">&#9733;</span>
+                        </div>
+                        <p id="rating-feedback" class="hidden">Você avaliou com <span id="selected-rating">0</span> estrelas.</p>
+                        <textarea id="user-comment" class="hidden" placeholder="Deixe seu feedback..."></textarea>
+                        <button id="submit-feedback" class="hidden">Enviar feedback</button>
+                        <p id="thank-you-message" class="hidden">Obrigado pelo seu feedback!</p>
+                    </div>
+                    <p id="rating-feedback" class="hidden">Você avaliou com <span id="selected-rating">0</span> estrelas.</p>
+                <textarea id="user-comment" class="hidden" placeholder="Deixe seu feedback..."></textarea>
+                <button id="submit-feedback" class="hidden">Enviar feedback</button>
+                <p id="thank-you-message" class="hidden">Obrigado pelo seu feedback!</p>
+            </fieldset>
+        </div>
+    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+    <script src="consulta.js"></script>
+</body>
+</html>

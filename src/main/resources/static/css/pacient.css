@@ -1,0 +1,194 @@
+/* Estilo geral do fieldset */
+fieldset {
+    border: transparent; /* Cor da borda */
+    border-radius: 8px; 
+    width: 810px;
+    padding: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    outline: none; /* Remover contorno padrão */
+    margin: 0 auto;
+}
+
+.fieldset-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    text-align: center;
+}
+
+form {
+    padding: 4px;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: transparent; /* Torna o fundo do formulário transparente */
+    border-radius: 8px;
+}
+
+input {
+    border-radius: 8px;
+    border: 2px solid #b2b1d4;
+    padding: 10px;
+    font-size: 14px; 
+    transition: all 0.3s ease; 
+    margin-left: 15px;
+    width: 80%; /* Ocupa toda a largura do campo */
+    margin-bottom: 2px;
+}
+
+input:focus {
+    border-color: #000000; 
+    outline: none; 
+}
+
+/* Estilo para o botão de olho */
+.input-container {
+    position: relative;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#senha {
+    padding-right: 40px; /* Espaço para o ícone dentro do input */
+}
+
+
+a {
+    color: #3396ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    padding: 20px;
+    background-color: #063364;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-pacient {
+    width: 453px;
+    height: 500px;
+    padding-right: 20px;
+    background-color: transparent; /* Remover fundo extra */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+label {
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 5px;
+    margin-left: 12px;
+}
+
+p {
+    color: #ffffff;
+    align-items: center;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+#eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.image-container {
+    width: 53%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-container img {
+    width: 364px;
+    height: 500px;
+    object-fit: cover; /* Mantém a proporção e cobre todo o espaço */
+    border-radius: 8px;
+}
+
+button {
+    background: none;
+    border: none;
+    position: absolute;
+    margin-top: 15px;
+    margin-right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 20px;
+        right: 10px;
+        top: 50%;
+    }
+
+.button-login button {
+    background-color: #ffffff;
+    border-radius: 3px;
+    padding: 10px 20px;
+    margin-top: 94px; /* Espaço entre o input e o botão */
+    margin-right: 62%;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.button-login button:hover {
+    background-color: #58a9ff;
+    color: #fff;
+}
+
+button i {
+    color: #142a8d;
+    transition: color 0.3s ease;
+}
+
+button:hover i {
+    color: #000000;
+}
+
+/* Estilo para o ícone de olho */
+#toggle-password i {
+    font-size: 18px;
+    color: #030f42;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Transição suave para a animação de zoom */
+}
+
+/* Hover para o ícone de olho */
+#toggle-password:hover i {
+    color: #3396ff; /* Mudança de cor ao passar o mouse */
+}
+
+/* Efeito de zoom no ícone */
+#toggle-password i {
+    transition: transform 0.3s ease; /* Transição suave para a animação de zoom */
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Usuário</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../paciente/perfil-pacient.css">
+</head>
+<body>
+
+    <h1>Bem-vindo(a), <span id="user-name">Paciente</span>!</h1>
+
+    <div class="container">
+        <!-- Sidebar do usuário -->
+        <div class="dados-user">
+            <form>    
+                <fieldset>
+                    <h2>Dados de Usuário</h2>
+        
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" value="Ana Souza" disabled>
+        
+                    <label for="idade">Idade:</label>
+                    <input type="number" id="idade" name="idade" value="28" disabled>
+        
+                    <label for="planoSaude">Plano de Saúde:</label>
+                    <select id="planoSaude" name="planoSaude" disabled>
+                        <option value="nenhum">Nenhum</option>
+                        <option value="Unimed" selected>Unimed</option>
+                        <option value="Amil">Amil</option>
+                        <option value="Bradesco Saúde">Bradesco Saúde</option>
+                    </select>
+        
+                    <button type="button" id="editarBtn">Editar</button>
+                    <button type="submit" id="salvarBtn" style="display: none;">Salvar</button>
+                </fieldset>
+            </form>
+        </div>
+
+        <!-- Área de agendamentos -->
+        <div class="agend-user">
+            <form>
+                <fieldset>
+                    <h3>Agendamento de Consultas</h3>
+                    <p>Pesquise médicos por nome ou especialidade.</p>
+
+                    <!-- Filtros -->
+                    <label for="searchName">Nome do Médico:</label>
+                    <input type="text" id="searchName" placeholder="Digite o nome do médico">
+
+                    <label for="searchEspecialidade">Especialidade:</label>
+                    <select id="searchEspecialidade">
+                        <option value="">Selecione a especialidade</option>
+                        <option value="Cardiologia">Cardiologia</option>
+                        <option value="Ortopedia">Ortopedia</option>
+                        <option value="Pediatria">Pediatria</option>
+                        <option value="Dermatologia">Dermatologia</option>
+                    </select>
+
+                    <!-- Lista de médicos -->
+                    <h4>Médicos Disponíveis:</h4>
+                    <div id="listaMedicos">
+                        <p>Sem médicos disponíveis no momento.</p>
+                    </div>
+
+                    <!-- Seleção de médico e data -->
+                    <label for="medicoSelecionado">Escolha um Médico:</label>
+                    <select id="medicoSelecionado">
+                        <option value="">Selecione um médico</option>
+                    </select>
+                    <div class="data-agendamento">
+                        <label for="dataConsulta">Escolha uma Data:</label>
+                        <input type="date" id="dataConsulta">
+                        <button type="button" id="agendarConsulta">Agendar</button>
+                    </div>                    
+
+                    <!-- Cancelamento de agendamento -->
+                    <h4>Cancelar Agendamento:</h4>
+                    <label for="cancelarConsulta">Escolha a consulta a cancelar:</label>
+                    <select id="cancelarConsulta">
+                        <option value="">Selecione uma consulta</option>
+                    </select>
+                    <br>
+                    <button type="button" id="cancelarAgendamento" class="cancelar-consulta">Cancelar</button>
+                </fieldset>
+                <button type="button" id="proximapag" class="proxima-pagina">Próxima Página</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../paciente/perfil-pacient.js"></script>
+</body>
+</html>

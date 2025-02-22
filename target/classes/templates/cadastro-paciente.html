@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Paciente</title>
+    <!-- Link do CSS (opcional, se desejado) -->
+    <link href="/css/estilo.css" rel="stylesheet" type="text/css">
+    <script>
+        // Função para habilitar/desabilitar o campo de texto do plano
+        function togglePlanoCheckbox(checkbox) {
+            const planoInput = document.getElementById('plano'); // Captura o campo de texto do plano
+            if (checkbox.checked) {
+                planoInput.value = "none"; // Define como "none" se marcado
+                planoInput.disabled = true; // Desabilita o campo de texto
+            } else {
+                planoInput.value = ""; // Limpa o valor do campo
+                planoInput.disabled = false; // Habilita o campo de texto
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Cadastro de Paciente</h1>
+    <form method="post" action="/cadastroPaciente">
+        <!-- Campo para Nome -->
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" placeholder="Informe o nome completo" required>
+        <br><br>
+		
+		<!-- Campo para Nome -->
+		<label for="idade">Idade:</label>
+		<input type="text" id="idade" name="idade" placeholder="Informe sua idade" required>
+		<br><br>
+
+        <!-- Campo para Senha -->
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+        <br><br>
+
+        <!-- Campo para Plano -->
+        <label for="plano">Plano:</label>
+        <input type="text" id="plano" name="plano" placeholder="Informe o nome do plano" required>
+        <br>
+        <label>
+            <input type="checkbox" id="noPlano" name="noPlano" value="none" onclick="togglePlanoCheckbox(this)">
+            Não possui plano
+        </label>
+        <br><br>
+
+        <!-- Campo para E-mail -->
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" placeholder="Informe seu e-mail" required>
+        <br><br>
+
+        <!-- Botão de Enviar -->
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
+</html>
