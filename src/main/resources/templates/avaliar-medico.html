@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação do Médico</title>
+</head>
+<body>
+    <h1>Avaliação do Médico</h1>
+
+    <!-- Nome e especialidade do médico -->
+    <p><strong>Nome do Médico:</strong> <span th:text="${consulta.doutor.nome}"></span></p>
+    <p><strong>Especialidade:</strong> <span th:text="${consulta.doutor.especialidade}"></span></p>
+
+    <!-- Descrição do Doutor -->
+    <div th:if="${descricaoDoutor != null}">
+        <p><strong>Descrição do Médico:</strong></p>
+        <p th:text="${descricaoDoutor}"></p>
+    </div>
+
+    <!-- Valor da consulta -->
+    <div th:if="${valorConsulta != null and valorConsulta > 0}">
+        <p><strong>Valor a pagar:</strong> R$ <span th:text="${valorConsulta}"></span></p>
+    </div>
+
+    <!-- Formulário para avaliação -->
+    <form action="/avaliarMedico" method="POST">
+        <input type="hidden" name="consultaId" th:value="${consulta.id}">
+        <label for="estrelas">Nota (Estrelas):</label>
+        <select name="estrelas" id="estrelas" required>
+            <option value="1">1 - Péssimo</option>
+            <option value="2">2 - Ruim</option>
+            <option value="3">3 - Regular</option>
+            <option value="4">4 - Bom</option>
+            <option value="5">5 - Excelente</option>
+        </select>
+
+        <label for="comentario">Comentário:</label>
+        <textarea name="comentario" id="comentario" placeholder="Escreva sobre sua experiência..." required></textarea>
+
+        <button type="submit">Enviar Avaliação</button>
+    </form>
+</body>
+</html>

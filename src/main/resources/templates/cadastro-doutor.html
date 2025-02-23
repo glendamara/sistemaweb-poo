@@ -1,37 +1,32 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Doutor</title>
-    <!-- Link do CSS (opcional, se desejado) -->
-    <link href="/css/estilo.css" rel="stylesheet" type="text/css">
+    <title>Cadastro - Doutor</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>Cadastro de Doutor</h1>
-    <form method="post" action="/cadastroMed">
-        <!-- Campo para Nome -->
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" placeholder="Informe o nome completo" required>
-        <br><br>
+    <div class="form-container">
+        <h2>Cadastro do Doutor</h2>
+        <form action="/cadastrarDoutor" method="POST">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
 
-        <!-- Campo para Senha -->
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
-        <br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Digite seu email" required>
 
-        <!-- Campo para Especialidade -->
-        <label for="especialidade">Especialidade:</label>
-        <input type="text" id="especialidade" name="especialidade" placeholder="Informe a especialidade" required>
-        <br><br>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
 
-        <!-- Campo para E-mail -->
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" placeholder="Informe seu e-mail" required>
-        <br><br>
+            <label for="especialidade">Especialidade:</label>
+            <input type="text" id="especialidade" name="especialidade" placeholder="Exemplo: Cardiologista, Ortopedista, etc." required>
 
-        <!-- Botão de Enviar -->
-        <button type="submit">Cadastrar</button>
-    </form>
+            <label for="planoAtendido">Planos de Saúde Atendidos:</label>
+            <input type="text" id="planoAtendido" name="planoAtendido" placeholder="Exemplo: Unimed, Bradesco, etc." required>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
 </body>
 </html>
