@@ -1,49 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>Login Paciente</title>
-    <link rel="stylesheet" href="/css/pacient.css">
-    
 </head>
 <body>
-    <header>
-        <div class="container">
-            <fieldset>
-                <div class="fieldset-content">
-                    <div class="form-pacient">
-                        <form id="loginForm">
-                            <h2>Página do Paciente</h2>
-                            
-                            <label for="email">Email::</label>
-                            <input type="email" id="email" name="email" required>
-                            <br>
-                            
-                            <div class="input-container">
-                                <label for="senha">Senha:</label>
-                                <input type="password" id="senha" name="senha" required>
-                                <button type="button" id="toggle-password">
-                                    <i class="fa fa-eye"></i> <!-- Define um estado inicial correto -->
-                                </button>                                
-                            </div>
-                            
-                            <p>Quer ir ao Login de Médico? <a href="loginMed">Clique aqui</a></p>               
-                            
-                            <div class="button-login">
-                                <button type="submit">Login</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="image-container">
-                        <img src="/images/pexels-photo-7108171.webp" alt="Paciente">
-                    </div>
-                </div>        
-            </fieldset>
-        </div>
-    </header>
-    <script src="/js/loginpacient.js"></script>
+    <h2>Login - Paciente</h2>
+    <form th:action="@{/logar}" method="post">
+        <label>E-mail:</label>
+        <input type="email" name="email" required>
+        <br>
+        <label>Senha:</label>
+        <input type="password" name="senha" required>
+        <br>
+        <button type="submit">Entrar</button>
+    </form>
+    <p th:if="${erro}" th:text="${erro}"></p>
 </body>
 </html>

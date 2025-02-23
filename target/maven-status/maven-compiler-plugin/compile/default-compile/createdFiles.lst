@@ -1,0 +1,16 @@
+br\appLogin\appLogin\model\Paciente.class
+br\appLogin\appLogin\repository\AvaliacaoRepository.class
+br\appLogin\appLogin\model\Consulta.class
+br\appLogin\appLogin\repository\ConsultaRepository.class
+br\appLogin\appLogin\repository\PacienteRepository.class
+br\appLogin\appLogin\model\ListaEspera.class
+br\appLogin\appLogin\model\Avaliacao.class
+service\autenticator\Logininterceptor.class
+br\appLogin\appLogin\model\Doutor.class
+br\appLogin\appLogin\controller\LoginController.class
+br\appLogin\appLogin\repository\DoutorRepository.class
+br\appLogin\appLogin\DataConfiguration.class
+service\autenticator\LogininterceptorAppConfig.class
+br\appLogin\appLogin\repository\ListaEsperaRepository.class
+service\CookieService.class
+br\appLogin\appLogin\AppLoginApplication.class

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard Médico</title>
+</head>
+<body>
+    <h2>Bem-vindo(a), Dr. <span th:text="${nome}"></span></h2>
+    <p>Especialidade: <span th:text="${especialidade}"></span></p>
+    <h3>Consultas Agendadas:</h3>
+    <ul>
+        <li th:each="consulta : ${consultas}">
+            <span th:text="${consulta.paciente.nome}"></span> - <span th:text="${consulta.data}"></span>
+        </li>
+    </ul>
+</body>
+</html>

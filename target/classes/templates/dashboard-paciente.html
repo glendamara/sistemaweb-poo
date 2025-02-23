@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Paciente</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo, <span th:text="${paciente.nome}"></span></h1>
+        <span>Plano de Saúde: <span th:text="${paciente.planoSaude}"></span></span>
+    </header>
+
+    <!-- Bloco de Mensagens -->
+    <div th:if="${mensagem != null}" class="mensagem" style="background-color: #e0ffe0; padding: 10px; margin-bottom: 20px; border: 1px solid #5cb85c; color: #3c763d;">
+        <p th:text="${mensagem}"></p>
+    </div>
+
+    <div th:if="${erro != null}" class="erro" style="background-color: #ffe0e0; padding: 10px; margin-bottom: 20px; border: 1px solid #ff5c5c; color: #a94442;">
+        <p th:text="${erro}"></p>
+    </div>
+
+    <main>
+        <nav>
+            <button onclick="showSection('consultas')">Consultas</button>
+            <button onclick="showSection('editar')">Editar Dados</button>
+        </nav>
+
+
+        <!-- Aba de Consultas -->
+        <section id="consultas">
+            <h2>Consultas Agendadas</h2>
+            <ul>
+                <li th:each="consulta : ${consultas}">
+                    <strong>Data:</strong> <span th:text="${consulta.data}"></span> |
+                    <strong>Médico:</strong> <span th:text="${consulta.doutor.nome}"></span> |
+                    <strong>Status:</strong> <span th:text="${consulta.status}"></span>
+                </li>
+            </ul>
+
+            <h2>Agendar Consulta</h2>
+            <form action="/agendarConsulta" method="POST">
+                <label for="doutor">Médico:</label>
+                <select name="doutorId" id="doutor" required>
+                    <option th:each="doutor : ${doutores}" th:value="${doutor.id}" th:text="${doutor.nome}"></option>
+                </select>
+                <label for="data">Data:</label>
+                <input type="date" name="data" id="data" required>
+                <button type="submit">Agendar</button>
+            </form>
+        </section>
+
+        <!-- Aba para Editar Dados -->
+        <section id="editar" style="display: none;">
+            <h2>Editar Dados</h2>
+            <form action="/editarPaciente" method="POST">
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome" th:value="${paciente.nome}" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" th:value="${paciente.email}" readonly> <!-- Email não pode ser alterado -->
+
+                <label for="idade">Idade:</label>
+                <input type="number" name="idade" id="idade" th:value="${paciente.idade}" required>
+
+                <label for="planoSaude">Plano de Saúde:</label>
+                <input type="text" name="planoSaude" id="planoSaude" th:value="${paciente.planoSaude}" required>
+
+                <label for="senha">Nova Senha:</label>
+                <input type="password" name="senha" id="senha">
+
+                <!-- Botão para salvar alterações -->
+                <button type="submit">Salvar Alterações</button>
+            </form>
+        </section>
+		<!-- Filtro de Médicos -->
+		<section id="filtro-medicos">
+		    <h2>Buscar Médicos</h2>
+		    <form action="/filtrarMedicos" method="GET">
+		        <label for="nome">Nome:</label>
+		        <input type="text" id="nome" name="nome">
+
+		        <label for="especialidade">Especialidade:</label>
+		        <input type="text" id="especialidade" name="especialidade">
+
+		        <button type="submit">Buscar</button>
+		    </form>
+
+		    <h3>Médicos Disponíveis</h3>
+		    <ul>
+		        <li th:each="doutor : ${medicos}">
+		            <strong>Nome:</strong> <span th:text="${doutor.nome}"></span> |
+		            <strong>Especialidade:</strong> <span th:text="${doutor.especialidade}"></span> |
+		            <strong>Estrelas:</strong> <span th:text="${doutor.estrelas}"></span> |
+		            <strong>Avaliações:</strong> <span th:text="${doutor.ultimasAvaliacoes}"></span>
+		        </li>
+		    </ul>
+		</section>
+<!-- Consultas do Paciente -->
+<section id="consultas">
+    <h2>Consultas Agendadas</h2>
+
+    <ul>
+        <li th:each="consulta : ${consultas}">
+            <strong>Data:</strong> <span th:text="${#dates.format(consulta.data, 'dd/MM/yyyy')}"></span> |
+            <strong>Médico:</strong> <span th:text="${consulta.doutor.nome}"></span> |
+            <strong>Status:</strong> <span th:text="${consulta.status}"></span>
+
+            <!-- Botão para cancelar a consulta -->
+            <form th:if="${consulta.status == 'AGENDADA'}" action="/cancelarConsulta" method="POST" style="display: inline;">
+                <input type="hidden" name="consultaId" th:value="${consulta.id}">
+                <button type="submit">Cancelar Consulta</button>
+            </form>
+
+            <!-- Botão para finalizar a consulta -->
+            <form th:if="${consulta.status == 'AGENDADA'}" action="/finalizarConsulta" method="POST" style="display: inline;">
+                <input type="hidden" name="consultaId" th:value="${consulta.id}">
+                <button type="submit"
+                        th:disabled="${consulta.descricao == null}"> <!-- Botão desabilitado se não houver descrição -->
+                    Finalizar Consulta
+                </button>
+            </form>
+        </li>
+    </ul>
+</section>
+
+
+
+		
+		
+		
+		
+    </main>
+
+    <script>
+        function showSection(section) {
+            document.getElementById('consultas').style.display = section === 'consultas' ? 'block' : 'none';
+            document.getElementById('editar').style.display = section === 'editar' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

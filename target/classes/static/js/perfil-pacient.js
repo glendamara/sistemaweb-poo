@@ -1,106 +1,52 @@
-document.addEventListener("DOMContentLoaded", async function () {
-    // Simulação de dados de usuário
-    const mockUserData = {
-        nome: "Ana Souza",
-        idade: 28,
-        planoSaude: "Unimed"
-    };
-
-    // DOM
-    const nomeInput = document.getElementById("nome");
-    const idadeInput = document.getElementById("idade");
-    const planoSaudeSelect = document.getElementById("planoSaude");
-    const userName = document.getElementById("user-name");
-
+document.addEventListener("DOMContentLoaded", function () {
     const editarBtn = document.getElementById("editarBtn");
     const salvarBtn = document.getElementById("salvarBtn");
-    const agendarBtn = document.getElementById("agendarConsulta");
-    const cancelarBtn = document.getElementById("cancelarAgendamento");
-    const botaoProximaPagina = document.getElementById("proximapag");
-
-    // Simula requisição da API
-    async function getUserData() {
-        try {
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    const savedUser = JSON.parse(localStorage.getItem("userData")) || mockUserData;
-                    resolve(savedUser);
-                }, 1000);
-            });
-        } catch (error) {
-            console.error("Erro ao buscar dados do usuário:", error);
-            return mockUserData; 
-        }
-    }
-
-    // Preenche os inputs com os dados do usuário
-    async function loadUserData() {
-        const userData = await getUserData();
-        nomeInput.value = userData.nome;
-        idadeInput.value = userData.idade;
-        planoSaudeSelect.value = userData.planoSaude || "nenhum";
-        userName.textContent = userData.nome;
-    }
+    const nomeInput = document.getElementById("nome");
+    const idadeInput = document.getElementById("idade");
+    const planoTexto = document.getElementById("planoSaude");
 
     // Ativar edição dos campos
-    function enableEditing() {
+    editarBtn.addEventListener("click", function () {
         nomeInput.disabled = false;
         idadeInput.disabled = false;
-        planoSaudeSelect.disabled = false;
+        planoTexto.disabled = false;
         editarBtn.style.display = "none";
-        salvarBtn.style.display = "inline-block";
-    }
-
-    // Salvar dados editados
-    function saveUserData() {
-        const updatedUser = {
-            nome: nomeInput.value,
-            idade: idadeInput.value,
-            planoSaude: planoSaudeSelect.value
-        };
-        localStorage.setItem("userData", JSON.stringify(updatedUser));
-        userName.textContent = updatedUser.nome;
-        nomeInput.disabled = true;
-        idadeInput.disabled = true;
-        planoSaudeSelect.disabled = true;
-        editarBtn.style.display = "inline-block";
-        salvarBtn.style.display = "none";
-    }
-
-    // Agendar consulta
-    function agendarConsulta() {
-        const medicoSelecionado = document.getElementById("medicoSelecionado").value;
-        const dataConsulta = document.getElementById("dataConsulta").value;
-
-        if (medicoSelecionado && dataConsulta) {
-            alert("Consulta agendada!");
-        } else {
-            alert("Por favor, preencha todos os campos antes de agendar.");
-        }
-    }
-
-    // Cancelar consulta
-    function cancelarConsulta() {
-        const consultaSelecionada = document.getElementById("cancelarConsulta").value;
-        if (consultaSelecionada) {
-            alert("Consulta cancelada!");
-        } else {
-            alert("Por favor, selecione uma consulta para cancelar.");
-        }
-    }
-
-    // Redirecionamento para a próxima página, salvando plano de saúde no sessionStorage
-    botaoProximaPagina.addEventListener("click", function () {
-        sessionStorage.setItem("planoSaude", planoSaudeSelect.value);
-        window.location.href = "consulta-p.html";
+        salvarBtn.style.display = "block";
     });
 
-    // Eventos
-    editarBtn.addEventListener("click", enableEditing);
-    salvarBtn.addEventListener("click", saveUserData);
-    agendarBtn.addEventListener("click", agendarConsulta);
-    cancelarBtn.addEventListener("click", cancelarConsulta);
+    // Salvar os dados editados (simulação)
+    salvarBtn.addEventListener("click", function (e) {
+        e.preventDefault(); // Previne o envio do form
+        alert(`Dados salvos:\nNome: ${nomeInput.value}\nIdade: ${idadeInput.value}\nPlano de Saúde: ${planoTexto.value}`);
+        nomeInput.disabled = true;
+        idadeInput.disabled = true;
+        planoTexto.disabled = true;
+        salvarBtn.style.display = "none";
+        editarBtn.style.display = "block";
+    });
 
-    // Carrega os dados do usuário ao iniciar
-    loadUserData();
+    // Agendar consulta
+    const agendarBtn = document.getElementById("agendarConsulta");
+    agendarBtn.addEventListener("click", function () {
+        const medico = document.getElementById("medicoSelecionado").value;
+        const data = document.getElementById("dataConsulta").value;
+
+        if (medico && data) {
+            alert(`Consulta agendada com sucesso para ${data}.`);
+        } else {
+            alert("Por favor, preencha os campos necessários para o agendamento.");
+        }
+    });
+
+    // Cancelar consulta
+    const cancelarBtn = document.getElementById("cancelarBtn");
+    cancelarBtn.addEventListener("click", function () {
+        const consulta = document.getElementById("consultas").value;
+
+        if (consulta) {
+            alert(`Consulta cancelada com sucesso.`);
+        } else {
+            alert("Escolha uma consulta para cancelar.");
+        }
+    });
 });
